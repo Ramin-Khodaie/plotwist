@@ -4,9 +4,11 @@ import { createContext, useContext, useState } from 'react'
 import { AuthContext, AuthContextProviderProps } from './auth.types'
 import { toast } from 'sonner'
 
-import { useLanguage } from '../language'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { Profile } from '@/types/supabase'
+
+import { useLanguage } from '../language'
+import { APP_URL } from '../../../constants'
 
 export const authContext = createContext({} as AuthContext)
 
@@ -41,7 +43,7 @@ export const AuthContextProvider = ({
       email,
       options: {
         shouldCreateUser: false,
-        emailRedirectTo: `http://localhost:3000/${language}/home`,
+        emailRedirectTo: `${APP_URL}/${language}/home`,
       },
     })
   }
@@ -51,7 +53,7 @@ export const AuthContextProvider = ({
       email,
       options: {
         data: { username },
-        emailRedirectTo: `http://localhost:3000/${language}/${username}`,
+        emailRedirectTo: `${APP_URL}/${language}/${username}`,
       },
     })
   }

@@ -704,5 +704,12 @@
   "select_your_username_description": "Choisissez votre nom d'utilisateur et terminez votre inscription pour commencer à utiliser la plateforme.",
   "finish_sign_up": "Terminer l'inscription",
   "username_required": "Le nom d'utilisateur est obligatoire.",
-  "username_invalid": "Le nom d'utilisateur ne peut pas contenir d'espaces ni de caractères spéciaux."
+  "username_invalid": "Le nom d'utilisateur ne peut pas contenir d'espaces ni de caractères spéciaux.",
+  "verification": "Vérification",
+  "back": "Retour",
+  "sent_access_link": "Si vous avez un compte, nous avons envoyé un lien d'accès à",
+  "username_already_registered": "Nom d'utilisateur déjà enregistré.",
+  "email_already_registered": "E-mail déjà enregistré.",
+  "registration_completed": "🎉 Inscription terminée!",
+  "access_link_sent": "Nous avons envoyé votre lien d'accès à"
 }

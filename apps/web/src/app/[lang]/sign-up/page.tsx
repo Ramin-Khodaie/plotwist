@@ -2,7 +2,6 @@ import { PageProps } from '@/types/languages'
 import { getDictionary } from '@/utils/dictionaries'
 import { Pattern } from '@/components/pattern'
 import { Metadata } from 'next'
-import { SignUpSocial } from './_components/sign-up-social'
 import { SignUpForm } from './_components/sign-up-form'
 import Link from 'next/link'
 
@@ -24,7 +23,7 @@ export async function generateMetadata({
   }
 }
 
-const SignUpPage = async ({ searchParams, params: { lang } }: PageProps) => {
+const SignUpPage = async ({ params: { lang }, searchParams }: PageProps) => {
   const dictionary = await getDictionary(lang)
 
   return (
@@ -35,13 +34,21 @@ const SignUpPage = async ({ searchParams, params: { lang } }: PageProps) => {
         <div className="space-y- w-full max-w-[450px]">
           <div className="space-y-4">
             <div className="w-full space-y-2 text-center">
-              <h1 className="text-3xl font-bold">{dictionary.start_now}</h1>
-              <p className="text-sm text-muted-foreground">
-                {dictionary.start_your_journey}
-              </p>
+              <h1 className="text-3xl font-bold">
+                {searchParams.step === 'success'
+                  ? dictionary.registration_completed
+                  : dictionary.start_now}
+              </h1>
+
+              {searchParams.step !== 'success' && (
+                <p className="text-sm text-muted-foreground">
+                  {dictionary.start_your_journey}
+                </p>
+              )}
             </div>
 
-            {searchParams.provider ? <SignUpForm /> : <SignUpSocial />}
+            {/* {searchParams.provider ? <SignUpForm /> : <SignUpSocial />} */}
+            <SignUpForm />
           </div>
         </div>
       </div>
